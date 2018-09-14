@@ -13,6 +13,6 @@ public interface BookingTimeLineRepository extends JpaRepository<BookingTimeLine
 
    List<BookingTimeLine> findBookingTimeLineByUseDateTimeBetween(LocalDateTime startTime, LocalDateTime endTime);
 
-   @Lock(LockModeType.PESSIMISTIC_READ)
+   @Lock(LockModeType.PESSIMISTIC_WRITE)
    Optional<BookingTimeLine> findByRoomTypeAndUseDateTime(String roomType, LocalDateTime useDateTime);
 }
